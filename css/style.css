@@ -1,0 +1,30 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 700px;
+}
+
+.create-column {
+  background: #7ade4e;
+  width: 200px;
+}
+.add-card {
+  display: inline-block;
+  background: #7ade4e;
+}
+
+.btn-delete {
+  display: inline-block;
+  background: #f81127;
+  text-shadow: 2px 1px 4px #aaa;
+}
+
+.card-description {
+  display: inline-block;
+  padding-left: 20px;
+}
+
+li {
+  list-style-type: none;
+}
