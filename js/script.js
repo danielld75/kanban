@@ -7,7 +7,16 @@ $(function () {
     }
     return str;
   }
-
+  var answerPrompt = function (note, defaultName) {
+    var promp = prompt(note);
+    if (!promp && promp === '') {
+      return defaultName;
+    } else if (promp === null) {
+      return promp.length;
+    } else {
+      return promp;
+    }
+  };
   function Column(name) {
     var self = this;
     this.id = randomString();
@@ -20,11 +29,14 @@ $(function () {
       var $columnCardList = $('<ul>').addClass('column-card-list');
       var $columnDelete = $('<button>').addClass('btn-delete').text('x');
       var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
+
+
       $columnDelete.click(function () {
         self.removeColumn();
       });
+
       $columnAddCard.click(function () {
-        self.addCard(new Card(prompt("Enter the name of the card")));
+        self.addCard(new Card(answerPrompt("Add new card name", "Default card")));
       });
       $column.append($columnTitle)
         .append($columnDelete)
@@ -89,7 +101,7 @@ $(function () {
 
   $('.create-column')
     .click(function () {
-      var name = prompt('Enter a column name');
+      var name = answerPrompt("Add new column name", "Default column");
       var column = new Column(name);
       board.addColumn(column);
     });

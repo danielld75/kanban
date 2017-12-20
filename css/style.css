@@ -5,6 +5,15 @@
   width: 700px;
 }
 
+.column-card-list {
+  min-height: 50px;
+  border: 1px solid #ccc;
+}
+
+.card‑placeholder {
+  background: red;
+}
+
 .create-column {
   background: #7ade4e;
   width: 200px;
