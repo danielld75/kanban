@@ -9,7 +9,7 @@ $(function () {
   }
   var answerPrompt = function (note, defaultName) {
     var promp = prompt(note);
-    if (!promp && promp === '') {
+    if (promp === '') {
       return defaultName;
     } else if (promp === null) {
       return promp.length;
