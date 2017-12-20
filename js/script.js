@@ -7,16 +7,17 @@ $(function () {
     }
     return str;
   }
-  var answerPrompt = function (note, defaultName) {
-    var promp = prompt(note);
-    if (promp === '') {
-      return defaultName;
-    } else if (promp === null) {
-      return promp.length;
-    } else {
-      return promp;
+
+  function answerPrompt(note, defaultName, ifNameIsProper) {
+    var name = prompt(name);
+    if (name !== null && name.trim() === '') {
+      name = defaultName;
     }
-  };
+    if (name) {
+      ifNameIsProper(name);
+    }
+  }
+
   function Column(name) {
     var self = this;
     this.id = randomString();
@@ -36,7 +37,9 @@ $(function () {
       });
 
       $columnAddCard.click(function () {
-        self.addCard(new Card(answerPrompt("Add new card name", "Default card")));
+        answerPrompt("Add new card name", "Default card", function (name){
+          self.addCard(new Card(name));
+        });
       });
       $column.append($columnTitle)
         .append($columnDelete)
@@ -101,9 +104,10 @@ $(function () {
 
   $('.create-column')
     .click(function () {
-      var name = answerPrompt("Add new column name", "Default column");
-      var column = new Column(name);
-      board.addColumn(column);
+      answerPrompt("Add new column name", "Default column", function (name){
+        var column = new Column(name);
+        board.addColumn(column);
+      });
     });
 // CREATING COLUMNS
   var todoColumn = new Column('To do');
