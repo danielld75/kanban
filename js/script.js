@@ -9,7 +9,7 @@ $(function () {
   }
 
   function answerPrompt(note, defaultName, ifNameIsProper) {
-    var name = prompt(name);
+    var name = prompt(note);
     if (name !== null && name.trim() === '') {
       name = defaultName;
     }
