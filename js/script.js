@@ -37,7 +37,7 @@ $(function () {
       });
 
       $columnAddCard.click(function () {
-        answerPrompt("Add new card name", "Default card", function (name){
+        answerPrompt("Add new card name", "Default card", function (name) {
           self.addCard(new Card(name));
         });
       });
@@ -104,7 +104,7 @@ $(function () {
 
   $('.create-column')
     .click(function () {
-      answerPrompt("Add new column name", "Default column", function (name){
+      answerPrompt("Add new column name", "Default column", function (name) {
         var column = new Column(name);
         board.addColumn(column);
       });
